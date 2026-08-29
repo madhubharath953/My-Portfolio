@@ -39,6 +39,7 @@ function useTypedRole() {
 
 export default function Hero() {
   const typed = useTypedRole();
+  const [photoError, setPhotoError] = useState(false);
 
   return (
     <section
@@ -107,25 +108,22 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: signature terminal card */}
+        {/* Right: profile photo — replace public/profile.jpg with your real photo */}
         <div className="relative mx-auto w-full max-w-md animate-floaty [animation-duration:8s]">
-          <div className="glass shadow-glass overflow-hidden rounded-2xl">
-            <div className="flex items-center gap-1.5 border-b border-line px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-              <span className="ml-3 font-mono text-xs text-muted">profile.json</span>
-            </div>
-            <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-6 text-ink/90">
-              <code>
-                <span className="text-violet-400">const</span> developer = {'{'}
-                {'\n'}  name: <span className="text-cyan-300">&quot;Madhu Bharath E&quot;</span>,
-                {'\n'}  role: [<span className="text-cyan-300">&quot;Full Stack Dev&quot;</span>, <span className="text-cyan-300">&quot;AI/ML&quot;</span>],
-                {'\n'}  stack: [<span className="text-cyan-300">&quot;React&quot;</span>, <span className="text-cyan-300">&quot;Next.js&quot;</span>, <span className="text-cyan-300">&quot;Python&quot;</span>],
-                {'\n'}  status: <span className="text-cyan-300">&quot;open to opportunities&quot;</span>,
-                {'\n'}{'}'};
-              </code>
-            </pre>
+          <div className="absolute -inset-2 -z-10 rounded-[2rem] bg-gradient-to-br from-violet-500/40 to-cyan-400/40 blur-xl" />
+          <div className="glass shadow-glass aspect-square w-full overflow-hidden rounded-[2rem]">
+            {!photoError ? (
+              <img
+                src="/profile.jpg"
+                alt="Madhu Bharath E"
+                onError={() => setPhotoError(true)}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center font-display text-6xl font-semibold text-ink">
+                MB
+              </div>
+            )}
           </div>
           <div className="absolute -bottom-4 -right-4 -z-10 h-28 w-28 rounded-full bg-glow-violet blur-2xl" />
         </div>
