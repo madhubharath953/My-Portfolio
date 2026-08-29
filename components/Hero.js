@@ -114,10 +114,10 @@ export default function Hero() {
           <div className="glass shadow-glass aspect-square w-full overflow-hidden rounded-[2rem]">
             {!photoError ? (
               <img
-                src="/profile.jpg"
+                src="/Profile.jpeg"
                 alt="Madhu Bharath E"
                 onError={() => setPhotoError(true)}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center font-display text-6xl font-semibold text-ink">
