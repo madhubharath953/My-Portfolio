@@ -19,7 +19,7 @@ export default function About() {
           <div className="glass aspect-[4/5] w-full overflow-hidden rounded-2xl">
             {!photoError ? (
               <img
-                src="/profile.jpeg"
+                src="/Profile.jpeg"
                 alt="Madhu Bharath E"
                 onError={() => setPhotoError(true)}
                 className="h-full w-full object-cover"
